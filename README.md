@@ -37,7 +37,7 @@ pip install python-docx chardet
 
 1. Launch the application by running:
    ```bash
-   python email_sender.py
+   python mail.py
    ```
 
 2. Configure the following:
