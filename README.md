@@ -1,84 +1,87 @@
-# Email Automation Tool
+# Email-Automation-Bot
+### Created by HS160
 
-A Python script for sending personalized emails to multiple recipients using a CSV file for contact information and a Word document as an email template.
+A Python-based desktop application for sending personalized bulk emails using CSV data and Word document templates.
 
 ## Features
 
+- User-friendly graphical interface for easy operation
+- CSV file support for recipient data management
+- Word document template support with mail merge capabilities
+- Progress tracking with visual progress bar
+- Detailed status logging
+- Multi-threading to prevent GUI freezing
 - Automatic CSV encoding detection
-- Flexible CSV column name matching
-- Support for Word document templates with personalization
-- Gmail SMTP integration
-- Error handling and reporting
-- Progress tracking for email sending
+- Smart column detection for name and email fields
 
 ## Prerequisites
 
-- Python 3.x
-- Required Python packages:
-  - python-docx
-  - chardet
+Before running the application, ensure you have Python installed and the following dependencies:
 
-## Installation
-
-1. Clone this repository
-2. Install required packages:
 ```bash
 pip install python-docx chardet
 ```
 
-## CSV File Format
+## Setup
 
-The script accepts CSV files with the following column headers (case-insensitive):
-
-- Name/Full Name/First Name/Firstname
-- Email/Email Address/E-mail/Mail
-
-Example:
-```csv
-Name,Email
-Harsh Solanki,harsh@example.com
-Dev,dev@example.com
-```
-
-## Word Template Format
-
-Create a Word document (.docx) with your email content. Use `[Name]` as a placeholder where you want the recipient's name to appear.
+1. Clone or download this repository
+2. Install the required dependencies
+3. For Gmail users, you'll need to set up an App Password:
+   - Go to your Google Account settings
+   - Navigate to Security > 2-Step Verification
+   - At the bottom, select "App passwords"
+   - Generate a new app password for "Mail"
+   - Use this password in the application instead of your regular Gmail password
 
 ## Usage
 
-1. Run the script:
-```bash
-python email_sender.py
-```
+1. Launch the application by running:
+   ```bash
+   python email_sender.py
+   ```
 
-2. Follow the prompts to provide:
-   - Path to your CSV file
-   - Path to your Word template
-   - Your Gmail address
-   - Your Gmail app password
+2. Configure the following:
+   - Select your CSV file containing recipient information
+   - Choose your Word template document
+   - Enter your email address
+   - Enter your app password
 
-## Gmail App Password Setup
+3. CSV File Format:
+   - Must include columns for name and email
+   - Accepted name column headers: "name", "full name", "firstname", "first name"
+   - Accepted email column headers: "email", "email address", "e-mail", "mail"
 
-1. Go to your Google Account settings
-2. Navigate to Security > 2-Step Verification
-3. Scroll to the bottom and select "App passwords"
-4. Generate a new app password for this script
+4. Word Template Format:
+   - Use `[Name]` as a placeholder where you want the recipient's name to appear
+   - The template content will be sent as plain text in the email body
+
+5. Click "Send Emails" to begin the sending process
 
 ## Security Notes
 
-- Never share your Gmail app password
-- Store recipient data securely
-- Review all emails before sending
+- The application uses Gmail's SMTP server with TLS encryption
+- Email credentials are not stored and must be entered each time
+- App passwords are recommended over regular passwords for enhanced security
 
 ## Error Handling
 
-The script includes error handling for:
-- Invalid CSV formats
-- Incorrect file paths
-- Email sending failures
-- Authentication errors
+The application includes robust error handling for:
+- Malformed CSV files
+- Invalid email credentials
+- Network connectivity issues
+- Individual email sending failures
 
-## Author
+## Limitations
 
-HS160
+- Currently supports Gmail accounts only
+- Sends plain text emails only (no HTML or attachments)
+- One template placeholder (`[Name]`) supported
+
+## Contributing
+
+Feel free to fork this repository and submit pull requests for any improvements.
+
+## License
+
+This project is open source and available under the MIT License.
 
